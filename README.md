@@ -5,3 +5,44 @@ Before looking into the control register, we will see the Clock Register (RCC_AH
 
 RCC_AHB1ENG
 This is called as RCC AHB1 peripheral clock enable register. The register is given below.
+
+![image](https://github.com/user-attachments/assets/eab604ae-a342-4ae1-98ef-c838dd6c3437)
+
+Bit [0] – GPIOAEN: IO port A clock enable
+
+0 – IO port A clock disabled
+
+1 – IO port A clock enabled
+
+Bit [1] – GPIOBEN: IO port B clock enable
+
+0 – IO port B clock disabled
+
+1 – IO port B clock enabled
+
+Bit [2] – GPIOBEN: IO port C clock enable
+
+0 – IO port C clock disabled
+
+1 – IO port C clock enabled
+
+Bit [3] – GPIOBEN: IO port D clock enable
+
+0 – IO port D clock disabled
+
+1 – IO port D clock enabled
+
+Bit [4] – GPIOBEN: IO port E clock enable
+
+0 – IO port E clock disabled
+
+1 – IO port E clock enabled
+We don’t need the rest of the bits as we are only working on GPIO.
+
+Example:
+
+```c
+//These are a couple of ways of enabling AHB clock for Port A
+SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOAEN);
+RCC->AHB1ENR |= (1UL << 0U);'''
+```
