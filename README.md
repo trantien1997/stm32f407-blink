@@ -46,3 +46,23 @@ Example:
 SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOAEN);
 RCC->AHB1ENR |= (1UL << 0U);'''
 ```
+The below control registers are used to configure the GPIOs.
+### 2. GPIOx_MODER
+This GPIO port mode register is used to select the I/O direction. Please find the below image of the GPIOx_MODER register.
+![image](https://github.com/user-attachments/assets/ac810db0-ef21-428a-968d-18483d750e03)
+
+Here 2-bits are combined for one particular GPIO pin.
+
+Bits [31:0] – MODERy: Direction selection for port X and bit Y, (y = 0 … 15)
+
+MODERy Direction Selection:
+
+00: Input (reset state)
+
+01: General purpose output mode
+
+10: Alternate Function mode
+
+11: Analog mode
+
+
